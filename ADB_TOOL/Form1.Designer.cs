@@ -66,6 +66,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lb_apk = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listViewAPK = new System.Windows.Forms.ListView();
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtIP = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -78,11 +83,6 @@
             this.cb_WIFI = new System.Windows.Forms.CheckBox();
             this.cb_USB = new System.Windows.Forms.CheckBox();
             this.cb_conifg = new System.Windows.Forms.CheckBox();
-            this.listViewAPK = new System.Windows.Forms.ListView();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.lb_apk = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabWifiConn.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -478,6 +478,54 @@
             this.tabPage3.Text = "Install APK";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lb_apk
+            // 
+            this.lb_apk.AutoSize = true;
+            this.lb_apk.Font = new System.Drawing.Font("MS UI Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lb_apk.Location = new System.Drawing.Point(15, 265);
+            this.lb_apk.Name = "lb_apk";
+            this.lb_apk.Size = new System.Drawing.Size(37, 19);
+            this.lb_apk.TabIndex = 5;
+            this.lb_apk.Text = "null";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(635, 296);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "INSTALL";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(528, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // listViewAPK
+            // 
+            this.listViewAPK.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2});
+            this.listViewAPK.FullRowSelect = true;
+            this.listViewAPK.Location = new System.Drawing.Point(7, 6);
+            this.listViewAPK.Name = "listViewAPK";
+            this.listViewAPK.Size = new System.Drawing.Size(703, 243);
+            this.listViewAPK.TabIndex = 3;
+            this.listViewAPK.UseCompatibleStateImageBehavior = false;
+            this.listViewAPK.View = System.Windows.Forms.View.Details;
+            this.listViewAPK.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewAPK_ItemSelectionChanged);
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "APK";
+            this.columnHeader2.Width = 696;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.TxtIP);
@@ -613,53 +661,6 @@
             this.cb_conifg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cb_conifg.UseVisualStyleBackColor = true;
             this.cb_conifg.CheckStateChanged += new System.EventHandler(this.cb_conifg_CheckStateChanged);
-            // 
-            // listViewAPK
-            // 
-            this.listViewAPK.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2});
-            this.listViewAPK.FullRowSelect = true;
-            this.listViewAPK.Location = new System.Drawing.Point(7, 6);
-            this.listViewAPK.Name = "listViewAPK";
-            this.listViewAPK.Size = new System.Drawing.Size(703, 243);
-            this.listViewAPK.TabIndex = 3;
-            this.listViewAPK.UseCompatibleStateImageBehavior = false;
-            this.listViewAPK.View = System.Windows.Forms.View.Details;
-            this.listViewAPK.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewAPK_ItemSelectionChanged);
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "APK";
-            this.columnHeader2.Width = 696;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(528, 296);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Refresh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // lb_apk
-            // 
-            this.lb_apk.AutoSize = true;
-            this.lb_apk.Font = new System.Drawing.Font("MS UI Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lb_apk.Location = new System.Drawing.Point(15, 265);
-            this.lb_apk.Name = "lb_apk";
-            this.lb_apk.Size = new System.Drawing.Size(37, 19);
-            this.lb_apk.TabIndex = 5;
-            this.lb_apk.Text = "null";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(635, 296);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "INSTALL";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

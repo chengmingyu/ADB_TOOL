@@ -308,6 +308,20 @@ namespace ADB_TOOL
 
         }
 
+        public void InstallApk() {
+            ShowMsg("APK installing......");
+            Cursor.Current = Cursors.WaitCursor;
+            if (AdbHelper.InstallApk(this.txtUSB_Serial.Text,this.lb_apk.Text))
+            {
+                ShowMsg("APK was Installed");
+            }
+            else
+            {
+                ShowMsg("ERROR : APK was not Installed");
+            }
+        }
+
+       
 
         #endregion
 
@@ -447,6 +461,16 @@ namespace ADB_TOOL
         private void listViewAPK_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             this.lb_apk.Text = e.Item.SubItems[0].Text;
+        }
+
+        /// <summary>
+        /// install button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InstallApk();
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using log4net;
-
+using System.Diagnostics;
 namespace ADB_TOOL
 {
     /// <summary>
@@ -337,7 +337,7 @@ namespace ADB_TOOL
         {
             try
             {
-                string strCmd = "adb disconnect";
+                string strCmd = "disconnect";
                 var result = ProcessHelper.Run(AdbExePath, strCmd);
                 if (!result.Success
                     || result.ExitCode != 0
@@ -354,9 +354,42 @@ namespace ADB_TOOL
             return true;
         }
 
+        /// <summary>
+        /// kill adb service
+        /// </summary>
         public static void KillServer() {
             var result = ProcessHelper.Run(AdbExePath, "kill-server");
         }
+
+        /// <summary>
+        /// install apk
+        /// </summary>
+        /// <param name="deviceNo"></param>
+        /// <param name="apkFile"></param>
+        /// <returns>install result</returns>
+        public static bool InstallApk(string deviceNo,string apkFile) {
+            try
+            {
+                string strCmd = "install "+ apkFile;
+                var result = ProcessHelper.Run(AdbExePath, strCmd);
+                if ( (!result.OutputString.Contains("Success")))
+                {
+                    Debug.WriteLine("install failed");
+                    return false;
+                    //throw new Exception("push 执行返回的结果异常：" + result.OutputString);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("install failed!!!!");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
         #region 获取设备相关信息
         /// <summary>
         /// -s 0123456789ABCDEF shell getprop ro.product.brand
